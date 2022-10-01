@@ -6,29 +6,49 @@
  function (WorldWind) {
 
      "use strict";
-     function shapeConfigurationCallback(geometry, properties) {
-         var configuration = {};
-         configuration.attributes = new WorldWind.ShapeAttributes(null);
-         configuration.attributes.drawOutline = true;
-         configuration.attributes.outlineColor = new WorldWind.Color(
-             0.6 * configuration.attributes.interiorColor.red,
-             0.3 * configuration.attributes.interiorColor.green,
-             0.3 * configuration.attributes.interiorColor.blue,
-             1.0);
-         configuration.attributes.outlineWidth = 1.0;
-         return configuration;
-     };
+     var shapeConfigurationCallback = function (attributes, record) {
+        var configuration = {};
+        configuration.name = attributes.values.name || attributes.values.Name || attributes.values.NAME;
+
+        if (record.isPointType()) { // Configure point-based features (cities, in this example)
+            configuration.name = attributes.values.name || attributes.values.Name || attributes.values.NAME;
+
+            configuration.attributes = new WorldWind.PlacemarkAttributes(placemarkAttributes);
+
+            if (attributes.values.pop_max) {
+                var population = attributes.values.pop_max;
+                configuration.attributes.imageScale = 0.01 * Math.log(population);
+            }
+        } else if (record.isPolygonType()) { // Configure polygon-based features (countries, in this example).
+            configuration.attributes = new WorldWind.ShapeAttributes(null);
+
+            // Fill the polygon with a random pastel color.
+            configuration.attributes.interiorColor = new WorldWind.Color(
+                0.375 + 0.5 * Math.random(),
+                0.375 + 0.5 * Math.random(),
+                0.375 + 0.5 * Math.random(),
+                1.0);
+
+            // Paint the outline in a darker variant of the interior color.
+            configuration.attributes.outlineColor = new WorldWind.Color(
+                0.5 * configuration.attributes.interiorColor.red,
+                0.5 * configuration.attributes.interiorColor.green,
+                0.5 * configuration.attributes.interiorColor.blue,
+                1.0);
+        }
+
+        return configuration;
+    };
 
      function DangerLayer() {
          var shapefileLibrary = "https://worldwind.arc.nasa.gov/web/examples/data/shapefiles/naturalearth";
-         
-         //var plateBoundariesLayer = new WorldWind.RenderableLayer("Tectonic Plates");
-         //var plateBoundariesJSON = new WorldWind.GeoJSONParser("./new_eq_app_files/plate_boundaries.json");
-         //plateBoundariesJSON.load(null, shapeConfigurationCallback, plateBoundariesLayer);
 
          var worldLayer = new WorldWind.RenderableLayer("Countries");
          var worldShapefile = new WorldWind.Shapefile(shapefileLibrary + "/ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp");
          worldShapefile.load(null, shapeConfigurationCallback, worldLayer);
+
+         
+
          //wwd.addLayer(worldLayer);
          return worldLayer;
      }
