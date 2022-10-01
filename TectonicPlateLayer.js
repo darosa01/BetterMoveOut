@@ -20,10 +20,16 @@ define(['./worldwind.min'],
         };
 
         function TectonicPlateLayer() {
-
+            var shapefileLibrary = "https://worldwind.arc.nasa.gov/web/examples/data/shapefiles/naturalearth";
+            
             var plateBoundariesLayer = new WorldWind.RenderableLayer("Tectonic Plates");
             var plateBoundariesJSON = new WorldWind.GeoJSONParser("./new_eq_app_files/plate_boundaries.json");
             plateBoundariesJSON.load(null, shapeConfigurationCallback, plateBoundariesLayer);
+
+            //var worldLayer = new WorldWind.RenderableLayer("Countries");
+            //var worldShapefile = new WorldWind.Shapefile(shapefileLibrary + "/ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp");
+            //worldShapefile.load(null, shapeConfigurationCallback, worldLayer);
+            //wwd.addLayer(worldLayer);
             return plateBoundariesLayer;
         }
 

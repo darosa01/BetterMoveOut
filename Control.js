@@ -13,6 +13,7 @@ define(['./Circle',
         './Point',
         './Rectangle',
         './TectonicPlateLayer',
+        './DangerLayer',
         './WorldPoint',
         './Draw',
         './MetadataDisplay',
@@ -29,6 +30,7 @@ define(['./Circle',
               Point,
               Rectangle,
               TectonicPlateLayer,
+              DangerLayer,
               WorldPoint,
               Draw,
               Metadata,
@@ -289,7 +291,8 @@ define(['./Circle',
             {layer: viewControlsLayer, enabled: true},
             // {layer: new WorldWind.ViewControlsLayer(wwd), enabled: true},
             {layer: new WorldWind.BingAerialWithLabelsLayer(null), enabled: false},
-            {layer: new TectonicPlateLayer(), enabled: false}
+            {layer: new TectonicPlateLayer(), enabled: false},
+            {layer: new DangerLayer(), enabled: false}
         ];
 
         for (var l = 0; l < layers.length; l++) {
