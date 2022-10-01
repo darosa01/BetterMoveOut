@@ -45,6 +45,7 @@ define(function () {
         //        thisExplorer.updateVisibilityState(worldWindow);
         //    }
         //});
+        
     };
 
     LayerManager.prototype.onProjectionClick = function (event) {
@@ -211,6 +212,7 @@ define(function () {
 
     LayerManager.prototype.performSearch = function (queryString) {
         if (queryString) {
+            searchCountry(queryString);
             var thisLayerManager = this,
                 latitude, longitude;
 

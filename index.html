@@ -62,6 +62,43 @@
     </li>
 </ul>
 
+<div class="base" id="base">
+    <div class="base-table">
+        <div class="cross" onclick="toggleTab()">
+            X
+        </div>
+        <div class="content">
+            <div class="content-title">
+                CATALONIA
+            </div>
+            <div class="content-value">
+                100/100
+            </div>
+            <div class="content-text">
+                Due to its amazing climate...
+                <ul class="content-elements">
+                    <li>
+                        <div class="flip-front">
+                            Earthquakes
+                        </div>
+                        <div class="flip-back">
+                            100/100
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flip-front">
+                            Pollution
+                        </div>
+                        <div class="flip-back">
+                            50/100
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container containerFont">
     <div class="col-sm-8" id="globe" style="width: 100%; height: 100%; position: fixed; left: 0">
         <canvas id="canvasOne" width="1920" height="1080" style="position: fixed; left: 0; width: 100%; height: 100%">
@@ -479,6 +516,7 @@
     </div>
 </div>
 
+
 <!--Spin.js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
 <!--JQuery and JQuery UI-->
@@ -495,6 +533,7 @@
 <!--Require.js and main app-->
 <script data-main="Control" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.min.js"></script>
 
+<script defer type="text/javascript" src="actions.js"></script>
 </body>
 
 </html>

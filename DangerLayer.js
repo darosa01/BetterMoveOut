@@ -24,9 +24,9 @@
 
             // Fill the polygon with a random pastel color.
             configuration.attributes.interiorColor = new WorldWind.Color(
-                0.375 + 0.5 * Math.random(),
-                0.375 + 0.5 * Math.random(),
-                0.375 + 0.5 * Math.random(),
+                0.375 + 0.5 * Math.random(), // RED
+                0.375 + 0.5 * Math.random(), // GREEN
+                0.375 + 0.5 * Math.random(), // BLUE
                 1.0);
 
             // Paint the outline in a darker variant of the interior color.
@@ -46,8 +46,6 @@
          var worldLayer = new WorldWind.RenderableLayer("Countries");
          var worldShapefile = new WorldWind.Shapefile(shapefileLibrary + "/ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp");
          worldShapefile.load(null, shapeConfigurationCallback, worldLayer);
-
-         
 
          //wwd.addLayer(worldLayer);
          return worldLayer;
