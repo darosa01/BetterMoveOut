@@ -349,13 +349,13 @@ define(['./Circle',
 
         var layers = [
             {layer: new WorldWind.BMNGLayer(), enabled: true},
-            //{layer: new WorldWind.CompassLayer(), enabled: false},
+            {layer: new WorldWind.AtmosphereLayer(), enabled: true},
             {layer: new WorldWind.CoordinatesDisplayLayer(wwd), enabled: true},
             {layer: viewControlsLayer, enabled: true},
             // {layer: new WorldWind.ViewControlsLayer(wwd), enabled: true},
             {layer: new WorldWind.BingAerialWithLabelsLayer(null), enabled: false},
             {layer: new TectonicPlateLayer(), enabled: false},
-            {layer: new DangerLayer(), enabled: false}
+            {layer: new DangerLayer(), enabled: true}
         ];
 
         for (var l = 0; l < layers.length; l++) {
