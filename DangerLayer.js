@@ -47,6 +47,8 @@
          var worldShapefile = new WorldWind.Shapefile(shapefileLibrary + "/ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp");
          worldShapefile.load(null, shapeConfigurationCallback, worldLayer);
 
+         setGlobalWWind(WorldWind);
+
          //wwd.addLayer(worldLayer);
          return worldLayer;
      }

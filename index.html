@@ -31,8 +31,7 @@
 
 <ul class="tab"
     style="z-index: 999; position: fixed; left: 0; height: 38px; width: 100%; background: rgba(46,74,110,1); overflow: visible">
-    <li><a class="tablinksLeft logo" onclick="openTabLeft(event, 'how-to')" title="Info"><strong>Quake
-        Hunter</strong></a></li>
+    <li><a class="tablinksLeft logo" onclick="openTabLeft(event, 'how-to')" title="Info"><strong>BetterMoveOut</strong></a></li>
     <li>
         <a class="tablinksLeft" onclick="openTabLeft(event, 'controls')" title="Controls">
             <span class="glyphicon glyphicon-tasks"></span></a>
@@ -71,7 +70,7 @@
             <div class="content-title">
                 CATALONIA
             </div>
-            <div class="content-value">
+            <div class="content-value" id="content-value">
                 100/100
             </div>
             <div class="content-text">
@@ -81,7 +80,7 @@
                         <div class="flip-front">
                             Earthquakes
                         </div>
-                        <div class="flip-back">
+                        <div class="flip-back" id="eq-value">
                             100/100
                         </div>
                     </li>
@@ -89,7 +88,7 @@
                         <div class="flip-front">
                             Pollution
                         </div>
-                        <div class="flip-back">
+                        <div class="flip-back" id="pol-value">
                             50/100
                         </div>
                     </li>
