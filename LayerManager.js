@@ -105,8 +105,16 @@ define(function () {
                 layer.enabled = !layer.enabled;
                 if (layer.enabled) {
                     layerButton.addClass("active");
+                    if(layer.displayName == "Earthquakes"){
+                        document.getElementById("ageLegendTable").style.display = "table";
+                        document.getElementById("eq-buttons").style.display = "block";
+                    }
                 } else {
                     layerButton.removeClass("active");
+                    if(layer.displayName == "Earthquakes"){
+                        document.getElementById("ageLegendTable").style.display = "none";
+                        document.getElementById("eq-buttons").style.display = "none";
+                    }
                 }
                 this.wwd.redraw();
                 break;
