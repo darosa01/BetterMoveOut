@@ -1,3 +1,9 @@
+*Safety Hunter*: Safety Parameters Visualizer
+==================== 
+**Authors:** Cheima Balota, David Romero, Sergio Ruiz, Daniel Saavedra, Arturo Veigas
+
+Remake of the "Quake Hunter" application that provides safety and quality scores of every country based on parameters such as natural disasters, pollution, diseases...
+
 *Quake Hunter*: Earthquake Activity Visualizer
 ====================
 **Organization:** NASA Ames Research Center (PX)  
