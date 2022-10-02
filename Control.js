@@ -87,22 +87,6 @@ define(['./Circle',
             this.goToAnimator = new WorldWind.GoToAnimator(wwd);
             var Opacity = 0.5;
 
-            //console.log(wwd.layers[6].renderables);
-
-            // We create the country locations
-            let countries = wwd.layers[6].renderables;
-            let countryLocations = [];
-            let countryNames = [];
-            for(let i = 0; i < countries.length; i++){
-                let positions = [];
-                let boundaries = countries[i]._boundaries[0];
-                for(let j = 0; j < boundaries.length; j++){
-                    positions.push(new WorldWind.Location(boundaries[j][0], boundaries[j][1]));
-                }
-                countryLocations.push(positions);
-                countryNames.push(countries[i]._displayName);
-            }
-
             this.setDrawMode = function (value) {
                 this.drawMode = value;
             };
@@ -191,33 +175,6 @@ define(['./Circle',
                 wwd.addEventListener("dblclick", myControl.handler.Click);
                 wwd.addEventListener("mousemove", myControl.handler.Drawer);
                 wwd.addEventListener("contextmenu", UIController.rightclickhandler);
-
-                /*
-                wwd.addEventListener('mousemove', (e) => {
-                    let pickList = wwd.pick(wwd.canvasCoordinates(e.clientX, e.clientY));
-    
-                    if (pickList.objects.length === 1 && pickList.objects[0].isTerrain) {
-                        var position = pickList.objects[0].position;
-                        let mouseLocation = new WorldWind.Location(position.latitude, position.longitude);
-    
-                        let someCountry = false;
-                        for(let i = 0; i < countryLocations; i++){
-                            console.log(wwd.layers[6].renderables[i]);
-                            if(isLocationInside(mouseLocation, countryLocations)){
-                                wwd.layers[6].renderables[i].pickColor = {alpha: 1};
-                                someCountry = true;
-                            } else {
-                                wwd.layers[6].renderables[i].enabled = {alpha: 0};
-                            }
-                        }
-                        if(!someCountry){
-                            for(let i = 0; i < countryLocations; i++){
-                                wwd.layers[6].renderables[i].enabled = {alpha: 1};
-                            }
-                        }
-                    }
-                });
-                */
             };
 
             // Configure the USGS earthquake slab layers.
